@@ -3,7 +3,7 @@ An implementation of the vortex panel method for NACA 4-digit airfoil done for M
 
 The program generates a plot of Coefficient of lift (Cl) vs. Angle of attack for any NACA 4-digit airfoil.
 
-Here is some sample output for a NACA 4418 airfoil:
+Here is some sample output for a NACA 4418 airfoil overlayed with data obtained for the same airfoil from AirfoilTools:
 
 ![plot1](./Plots/cl_result.png)
 
