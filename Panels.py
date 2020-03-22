@@ -28,7 +28,7 @@ def draw_panel(x1, y1, x2, y2, step):
     b = y1 - m * x1
     xcoord = np.arange(x1, x2, step)
     ycoord = m * xcoord + b
-    plt.plot(xcoord, ycoord)
+    # plt.plot(xcoord, ycoord)
     return (xcoord, ycoord)
 
 
@@ -180,18 +180,17 @@ for i, a in enumerate(alpha):
     cl[i] = findLift(listOfPanels, freestream, a, lastPanelIndex, c, JMatrix)
 
 fig1
-# plt.plot(xu, yu)
-# plt.plot(xl, yl)
-for panel in listOfPanels:
-    plt.plot(panel.controlPoint[0], panel.controlPoint[1], '.k')
-plt.xlim(0, c)
-plt.ylim(-c, c)
+plt.plot(xu, yu, 'g')
+plt.plot(xl, yl, 'g')
+# for panel in listOfPanels:
+# plt.plot(panel.controlPoint[0], panel.controlPoint[1], '.k')
+plt.xlim(-0.1, c + 0.1)
+plt.ylim(-c / 1.5, c / 1.5)
 plt.title('NACA ' + str(airfoil) + ' Airfoil')
 plt.grid()
 plt.xlabel("x/c")
 plt.ylabel("t/c")
-plt.ylim(-0.2, 0.2)
-plt.savefig('airfoil.png', dpi=300)
+plt.savefig('./Plots/airfoil.png', dpi=300)
 
 fig2 = plt.figure()
 plt.grid()
@@ -201,17 +200,17 @@ plt.xlabel('Angle of Attack (\u00b0)')
 plt.ylabel('Cl')
 plt.xlim(alpha_range)
 
-airfoil_data = pd.read_csv('xfoil_data_50000.csv', sep=',')
+airfoil_data = pd.read_csv('./XfoilData/xfoil_data_50000.csv', sep=',')
 airfoil_angle = airfoil_data.values[:, 0]
 airfoil_cl = airfoil_data.values[:, 1]
 plt.plot(airfoil_angle, airfoil_cl, linewidth=1)
 
-airfoil_data = pd.read_csv('xfoil_data_100000.csv', sep=',')
+airfoil_data = pd.read_csv('./XfoilData/xfoil_data_100000.csv', sep=',')
 airfoil_angle = airfoil_data.values[:, 0]
 airfoil_cl = airfoil_data.values[:, 1]
 plt.plot(airfoil_angle, airfoil_cl, linewidth=1)
 
-airfoil_data = pd.read_csv('xfoil_data_500000.csv', sep=',')
+airfoil_data = pd.read_csv('./XfoilData/xfoil_data_500000.csv', sep=',')
 airfoil_angle = airfoil_data.values[:, 0]
 airfoil_cl = airfoil_data.values[:, 1]
 plt.plot(airfoil_angle, airfoil_cl, linewidth=1)
@@ -220,8 +219,6 @@ plt.legend([
     'Panel Method', 'Xfoil Re = 50,000', 'Xfoil Re = 100,000',
     'Xfoil Re = 500,000'
 ])
-plt.savefig('cl_result.png', dpi=300)
+plt.savefig('./Plots/cl_result.png', dpi=300)
 
 plt.show()
-
-print(len(listOfPanels))
