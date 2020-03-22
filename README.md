@@ -5,6 +5,6 @@ The program generates a plot of Coefficient of lift (Cl) vs. Angle of attack for
 
 Here is some sample output for a NACA 4418 airfoil:
 
-!["Cl vs AoA"]("./Plots/cl_result.png")
+![plot1](./Plots/cl_result.png Result)
 
-!["Airfoil Shape"]("./Plots/airfoil.png")
+![plot2](./Plots/airfoil.png Airfoil)
